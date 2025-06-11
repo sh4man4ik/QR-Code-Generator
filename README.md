@@ -8,7 +8,7 @@ All code is publicly available in this repository.
 This is a site for generating QR Codes.
 
 # Technology
-The site is written in *HTM*L, *CSS* and *JavaScript*. I also used *QRCode.js*, *Bootstrap*, *jQuery* and *Google Fonts*.
+The site is written in *HTML*, *CSS* and *JavaScript*. I also used *QRCode.js*, *Bootstrap*, *jQuery* and *Google Fonts*.
 
 # Interesting facts
 - You can generate as many QR Codes as you want for **free**.
