@@ -1,0 +1,360 @@
+:root {
+    /*Colors*/
+    --text-color: black;
+    --background-color: #F8FAFC;
+    --card-background-color: #9AA6B2;
+    --card-objects-color: #BCCCDC;
+    --button-color: #D9EAFD;
+
+    /*Font sizes*/
+    --title-font-size: clamp(16px, 3vw, 36px);
+    --small-title-text-size: clamp(8px, 3vw, 24px);
+    --default-text-size: clamp(5px, 3vw, 16px);
+
+}
+
+/*PC*/
+@media (min-width: 810px) {
+    :root {
+        /*Other*/
+        --margin-top: 80px;
+    }
+
+    #qrcode-container {
+        border-radius: 16px;
+    }
+
+    #github-link-text {
+        display: block;
+    }
+    #github-link-logo {
+        display: none;
+    }
+
+    #settings-input-website {
+        border-radius: 8px;
+        padding-left: 10px;
+    }
+
+    .form-control {
+        padding: 3px;
+    }
+
+    #download-container {
+        border-radius: 8px;
+    }
+
+    #download-container {
+        height: 84%;
+    }
+
+    #download-button {
+        border-radius: 8px;
+        padding: 3px 8px;
+    }
+
+    #download-button:active {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .qrcode-create-step img {
+        border-radius: 16px;
+        margin-top: 30px;
+    }
+
+    #qrcode-create-steps-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .qrcode-create-step {
+        width: 25%;
+    }
+
+    #faq-title {
+        margin-bottom: 30px;
+    }
+}
+
+/*Mobile*/
+@media (max-width: 809px) {
+    :root {
+        /*Other*/
+        --margin-top: 50px;
+    }
+
+    #qrcode-container {
+        border-radius: 8px;
+    }
+
+    #github-link-text {
+        display: none;
+    }
+    #github-link-logo {
+        display: block;
+    }
+
+    #settings-input-website {
+        border-radius: 4px;
+        padding-left: 5px;
+    }
+    
+    .form-control {
+        padding: 1px;
+    }
+
+    #download-container {
+        border-radius: 4px;
+    }
+
+    #download-container {
+        height: 90%;
+    }
+
+    #download-button {
+        border-radius: 4px;
+        padding: 1px 3px;
+    }
+
+    #download-button:hover {
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    .qrcode-create-step img {
+        border-radius: 8px;
+        margin-top: 25px;
+    }
+    
+    #qrcode-create-steps-container {
+        display: grid;
+        place-items: center;
+    }
+    
+    .qrcode-create-step {
+        width: 50%;
+    }
+
+    #faq-title {
+        margin-bottom: 25px;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+
+    background-color: var(--background-color);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: var(--title-font-size);
+}
+
+.navbar {
+    background-color: var(--background-color);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#title {
+    margin-left: 10px;
+}
+
+#github-link-logo {
+    font-size: var(--title-font-size);
+    margin-right: 10px;
+    cursor: default;
+}
+
+#github-link-logo:hover {
+    cursor: pointer;
+}
+
+#github-link-text {
+    text-decoration: none;
+}
+
+#github-link-text:hover {
+    text-decoration: underline;
+}
+
+#qrcode-container {
+    display: flex;
+    max-width: 750px;
+    height: auto;
+    min-height: 100px;
+    max-height: 350px;
+    aspect-ratio: 1.7 / 1;
+    width: 80%;
+    margin-top: var(--margin-top);
+    background-color: var(--card-background-color);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    justify-self: center;
+}
+
+#qrcode-settings {
+    display: block;
+    width: 60%;
+    height: 100%;
+}
+
+#settings-title-content {
+    font-weight: bold;
+    font-size: var(--small-title-text-size);
+    padding: 5% 5% 0 7%;
+    margin: 0 0 1% 0;
+}
+
+#settings-text-content {
+    font-size: var(--default-text-size);
+    padding: 0 5% 0 7%;
+    margin: 0;
+}
+
+#settings-input-website {
+    font-size: var(--small-title-text-size);
+    width: 80%;
+    margin: 5% 5% 0 7%;
+
+    border: 0;
+    background-color: var(--card-objects-color);
+}
+
+#settings-title2-content {
+    font-weight: bold;
+    font-size: var(--small-title-text-size);
+    padding: 10% 5% 0 7%;
+    margin: 0 0 1% 0;
+}
+
+#qrcode-colors {
+    display: flex;
+    padding: 0 5% 0 7%;
+}
+
+#qrcode-foreground, #qrcode-background {
+    font-size: var(--default-text-size);
+    margin: 0;
+}
+
+#qrcode-background-container {
+    margin-left: 10%;
+}
+
+.form-control {
+    margin-top: 15%;
+    width: clamp(6px, 7vw, 90px);
+    height: clamp(4px, 5vw, 40px);
+}
+
+#download-qrcode-container{
+    width: 40%;
+    height: 100%;
+    justify-self: right;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#download-container {
+    background-color: var(--card-objects-color);
+    width: 100%;
+    margin-right: 10%;
+    display: grid;
+}
+
+#download-title {
+    font-weight: bold;
+    font-size: var(--small-title-text-size);
+    text-align: center;
+    margin: 5% 0 0 0;
+}
+
+#qrcode {
+    aspect-ratio: 1 / 1;
+    width: 60%;
+    justify-self: center;
+}
+
+#download-button {
+    font-size: var(--small-title-text-size);
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    display: flex;
+    justify-self: center;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: 0;
+}
+
+#qrcode-title, #how-create-qrcode-title {
+    font-weight: bold;
+    font-size: var(--title-font-size);
+    text-align: center;
+    margin: var(--margin-top) 10% 0 10%;
+}
+
+#qrcode-title-text {
+    font-size: var(--small-title-text-size);
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%; 
+}
+
+.qrcode-create-step img {
+    width: 100%;
+    height: auto;
+}
+
+.qrcode-create-step {
+    text-align: left;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.steps-title {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: var(--small-title-text-size);
+    font-weight: bold;
+}
+
+.steps-text {
+    font-size: var(--default-text-size);
+}
+
+#faq-title {
+    font-weight: bold;
+    font-size: var(--title-font-size);
+    text-align: center;
+    margin-top: var(--margin-top);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.faq {
+    max-width: 500px;
+    width: 80%;
+    justify-self: center;
+    margin-bottom: 50px;
+}
+
+.faq summary {
+    font-weight: bold;
+    font-size: var(--small-title-text-size);
+}
+
+.faq p {
+    font-size: var(--default-text-size);
+}
+
+.faq details {
+    margin-bottom: 20px;
+}
