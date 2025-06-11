@@ -1,5 +1,3 @@
-
-
 # Quick Start
 The site can be accessed at https://free-qrcode-generatorr.netlify.app
 
