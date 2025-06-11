@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/sh4man4ik/QR-Code-Generator/blob/main/Screenshot.png)
+
 
 # Quick Start
 The site can be accessed at https://free-qrcode-generatorr.netlify.app
