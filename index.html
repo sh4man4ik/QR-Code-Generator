@@ -1,119 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>QR Code Generator</title>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HPQ17G8BB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
+			crossorigin="anonymous"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="src/css/style.css" />
+		<title>QR Code Generator</title>
+	</head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HPQ17G8BB"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
 
-  gtag('config', 'G-5HPQ17G8BB');
-</script>
-<body>
+		gtag('config', 'G-5HPQ17G8BB');
+	</script>
+	<body>
+		<header>
+			<nav class="navbar">
+				<div class="container-fluid">
+					<a id="title" class="navbar-brand" href="">QR Code Generator</a>
+					<a
+						id="github-link-text"
+						class="navbar-brand"
+						href="https://github.com/sh4man4ik/QR-Code-Generator"
+						target="_blank"
+						>GitHub</a
+					>
+					<i id="github-link-logo" class="bi bi-github" onclick="githubRepoLocation()"></i>
+				</div>
+			</nav>
+		</header>
 
-    <header>
-        <nav class="navbar">
-            <div class="container-fluid">
-                <a id="title" class="navbar-brand" href="">QR Code Generator</a>
-                <a id="github-link-text" class="navbar-brand" href="https://github.com/sh4man4ik/QR-Code-Generator" target="_blank">GitHub</a>
-                <i id="github-link-logo" class="bi bi-github" onclick="githubRepoLocation()"></i>
-            </div>
-        </nav>
-    </header>
+		<main>
+			<div id="qrcode-container">
+				<div id="qrcode-settings">
+					<p id="settings-title-content">Complete the content</p>
+					<p id="settings-text-content">Enter your Website</p>
+					<input type="text" id="settings-input-website" onchange="qrcodeGeneration(0)" />
 
-    <main>
-        <div id="qrcode-container">
-            <div id="qrcode-settings">
-                <p id="settings-title-content">Complete the content</p>
-                <p id="settings-text-content">Enter your Website</p>
-                <input type="text" id="settings-input-website" onchange="qrcodeGeneration(0)">
+					<p id="settings-title2-content">Design your QR</p>
+					<div id="qrcode-colors">
+						<div>
+							<p id="qrcode-foreground">Foreground</p>
+							<input
+								type="color"
+								id="qrcode-foreground-color"
+								class="form-control form-control-color"
+								value="#000000"
+								onchange="qrcodeGeneration(0)"
+							/>
+						</div>
+						<div id="qrcode-background-container">
+							<p id="qrcode-background">Background</p>
+							<input
+								type="color"
+								id="qrcode-background-color"
+								class="form-control form-control-color"
+								value="#FFFFFF"
+								onchange="qrcodeGeneration(0)"
+							/>
+						</div>
+					</div>
+				</div>
 
-                <p id="settings-title2-content">Design your QR</p>
-                <div id="qrcode-colors">
-                    <div>
-                        <p id="qrcode-foreground">Foreground</p>
-                        <input type="color" id="qrcode-foreground-color" class="form-control form-control-color" value="#000000" onchange="qrcodeGeneration(0)">
-                    </div>
-                    <div id="qrcode-background-container">
-                        <p id="qrcode-background">Background</p>
-                        <input type="color" id="qrcode-background-color" class="form-control form-control-color" value="#FFFFFF" onchange="qrcodeGeneration(0)">
-                    </div>
-                </div>
-            </div>
+				<div id="download-qrcode-container">
+					<div id="download-container">
+						<p id="download-title">Download QR</p>
+						<div id="qrcode"></div>
+						<button id="download-button" onclick="downloadQRCode()">DOWNLOAD</button>
+					</div>
+				</div>
+			</div>
+		</main>
 
-            <div id="download-qrcode-container">
-                <div id="download-container">
-                    <p id="download-title">Download QR</p>
-                    <div id="qrcode"></div>
-                    <button id="download-button" onclick="downloadQRCode()">DOWNLOAD</button>
-                </div>
-            </div>
-        </div>
-    </main>
+		<footer>
+			<div>
+				<p id="qrcode-title">QR Code Generator: Create your Free QR Code</p>
+				<p id="qrcode-title-text">Customize it with your color and url in 3 simple steps.</p>
+			</div>
 
-    <footer>
-        <div>
-            <p id="qrcode-title">QR Code Generator: Create your Free QR Code</p>
-            <p id="qrcode-title-text">Customize it with your color and url in 3 simple steps.</p>
-        </div>
+			<div>
+				<p id="how-create-qrcode-title">How to create a QR code?</p>
+				<div id="qrcode-create-steps-container">
+					<div class="qrcode-create-step">
+						<img src="src/img/img1.png" alt="img1" />
+						<p class="steps-title">Choose the content of your QR code</p>
+						<p class="steps-text">
+							Insert your url in the field so that the QR code will take to this link.
+						</p>
+					</div>
 
-        <div>
-            <p id="how-create-qrcode-title">How to create a QR code?</p>
-            <div id="qrcode-create-steps-container">
-                <div class="qrcode-create-step">
-                    <img src="img/img1.png" alt="img1">
-                    <p class="steps-title">Choose the content of your QR code</p>
-                    <p class="steps-text">Insert your url in the field so that the QR code will take to this link.</p>
-                </div>
+					<div class="qrcode-create-step">
+						<img src="src/img/img2.png" alt="img2" />
+						<p class="steps-title">Choose the colors of your QR code</p>
+						<p class="steps-text">You can choose any foreground color and background color for QR code.</p>
+					</div>
 
-                <div class="qrcode-create-step">
-                    <img src="img/img2.png" alt="img2">
-                    <p class="steps-title">Choose the colors of your QR code</p>
-                    <p class="steps-text">You can choose any foreground color and background color for QR code.</p>
-                </div>
+					<div class="qrcode-create-step">
+						<img src="src/img/img3.png" alt="img3" />
+						<p class="steps-title">Download QR code</p>
+						<p class="steps-text">
+							There is a download button under the QR code. Just click if you have customized the QR code
+							and then it will download.
+						</p>
+					</div>
+				</div>
+			</div>
 
-                <div class="qrcode-create-step">
-                    <img src="img/img3.png" alt="img3">
-                    <p class="steps-title">Download QR code</p>
-                    <p class="steps-text">There is a download button under the QR code. Just click if you have customized the QR code and then it will download.</p>
-                </div>
-            </div>
-        </div>
+			<div>
+				<p id="faq-title">Frequently Asked Questions</p>
+				<section class="faq">
+					<details>
+						<summary>What is QR Сode generator?</summary>
+						<p>
+							It is a tool that allows you to generate different types of QR Сodes, in an easy and
+							intuitive way. The rise of QR Сodes has made our QR Сode generator sought after and required
+							by many people and businesses, with businesses of all kinds.
+						</p>
+					</details>
 
-        <div>
-            <p id="faq-title">Frequently Asked Questions</p>
-            <section class="faq">
-                <details>
-                    <summary>What is QR Сode generator?</summary>
-                    <p>It is a tool that allows you to generate different types of QR Сodes, in an easy and intuitive way. The rise of QR Сodes has made our QR Сode generator sought after and required by many people and businesses, with businesses of all kinds.</p>
-                </details>
+					<details>
+						<summary>Are QR Сodes free?</summary>
+						<p>Our QR Code Generator is completely free. You can use it as much as you want.</p>
+					</details>
 
-                <details>
-                    <summary>Are QR Сodes free?</summary>
-                    <p>Our QR Code Generator is completely free. You can use it as much as you want.</p>
-                </details>
+					<details>
+						<summary>Can the generated QR Codes be used for commecial purposes?</summary>
+						<p>
+							The use of QR Codes is today part of the marketing strategy of many companies. Do not
+							hesitate: use the codes you generate on our platform to renew, give visibility and dynamism
+							to your business.
+						</p>
+					</details>
+				</section>
+			</div>
+		</footer>
 
-                <details>
-                    <summary>Can the generated QR Codes be used for commecial purposes?</summary>
-                    <p>The use of QR Codes is today part of the marketing strategy of many companies. Do not hesitate: use the codes you generate on our platform to renew, give visibility and dynamism to your business.</p>
-                </details>
-                </section>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script src="script.js"></script>
-</body>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+		<script src="src/js/script.js"></script>
+	</body>
 </html>
