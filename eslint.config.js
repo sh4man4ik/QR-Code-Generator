@@ -7,6 +7,8 @@ export default [
 			ecmaVersion: 'latest',
 			sourceType: 'module',
 			globals: {
+				console: 'readonly',
+
 				window: 'readonly',
 				document: 'readonly',
 				navigator: 'readonly',
