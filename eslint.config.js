@@ -6,13 +6,10 @@ export default [
 		languageOptions: {
 			ecmaVersion: 'latest',
 			sourceType: 'module',
-			globals: {
-				console: 'readonly',
-				window: 'readonly',
-				document: 'readonly',
-				Node: 'readonly',
-				module: 'readonly',
-				require: 'readonly'
+			env: {
+				browser: true,
+				node: true,
+				es2021: true
 			},
 			parserOptions: {
 				ecmaFeatures: {
