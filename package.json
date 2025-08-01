@@ -1,16 +1,16 @@
 {
-  "name": "qr-code-generator",
-  "version": "1.0.0",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "eslint": "^9.31.0",
-    "prettier": "^3.6.2"
-  }
+	"name": "qr-code-generator",
+	"version": "1.0.0",
+	"main": "script.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+		"eslint": "^9.31.0",
+		"prettier": "^3.6.2"
+	}
 }
